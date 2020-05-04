@@ -45,14 +45,17 @@ class App extends React.Component {
   }
 
   markComplete = e =>{
-    e.persist()
-    console.log(e.target.completed)
+    const target = e.target
+    console.log(target)
   }
 
   clearCompleted = e =>{
-    this.setState({
-      todo: [this.state.todo.filter(item => !item.completed)]
-    })
+
+    this.setState(
+      {
+        todo: [...this.state.todo.filter(item => item.completed === false)]
+      }
+    )
   }
 
   render() {
