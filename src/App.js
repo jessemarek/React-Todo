@@ -9,7 +9,7 @@ const todoData = [
   {
     task: 'Create Components',
     id: 1528817077286,
-    completed: true
+    completed: false
   },
   {
     task: 'Set State',
@@ -45,8 +45,15 @@ class App extends React.Component {
   }
 
   markComplete = e =>{
-    const target = e.target
-    console.log(target)
+    const id = e.target.id
+    const newTodo = [...this.state.todo]
+    newTodo.splice(id, 1, {...this.state.todo[id], completed: !this.state.todo[id].completed})
+
+    this.setState(
+      {
+        todo: newTodo
+      }
+    )
   }
 
   clearCompleted = e =>{

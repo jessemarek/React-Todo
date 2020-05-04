@@ -4,7 +4,7 @@ class Todo extends React.Component {
 
     render(){
         return(
-            <li 
+            <li id={this.props.id}
                 className={this.props.todo.completed ? "completed" : null}
                 onClick={this.props.markComplete}
             >
