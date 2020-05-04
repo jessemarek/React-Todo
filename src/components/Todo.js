@@ -1,13 +1,15 @@
 import React from 'react'
 
 class Todo extends React.Component {
-    constructor(){
-        super()
-    }
 
     render(){
         return(
-            <p>{this.props.todo.task}</p>
+            <li 
+                className={this.props.todo.completed ? "completed" : null}
+                onClick={this.props.markComplete}
+            >
+                {this.props.todo.task}
+            </li>
         )
     }
 }

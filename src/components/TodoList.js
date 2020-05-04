@@ -4,17 +4,21 @@ import React from 'react'
 import Todo from './Todo'
 
 class TodoList extends React.Component {
-    constructor(){
-        super()
-    }
 
     render(){
         return(
-            <div>
+            <ul>
                 {
-                    this.props.todo.map(item => <Todo key={item.id} todo={item} />)
+                    this.props.todo.map(
+                        item => 
+                            <Todo 
+                                key={item.id} 
+                                todo={item} 
+                                markComplete={this.props.markComplete} 
+                            />
+                    )
                 }
-            </div>
+            </ul>
         )
     }
 }
